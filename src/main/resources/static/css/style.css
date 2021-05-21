@@ -15,28 +15,28 @@ html,body{
 
 /* Основные стили */
 
-.container {
-    max-width: 1600px;
+.containerm {
+    max-width: 100%;
     margin: 0px auto;
     padding: 0px 10px;
 }
 
-.header {
+.headerm {
     position: fixed;
     width: 100%;
     top: 0;
     left: 0;
     z-index: 50;
 }
-.header:before {
+.headerm:before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgb(0,149,255);
-    background: linear-gradient(90deg, rgba(254,255,0,1) 0%, rgba(0,149,255,1) 100%);
+    /*background: rgb(0,149,255);
+    background: linear-gradient(90deg, rgba(254,255,0,1) 0%, rgba(0,149,255,1) 100%);*/
     z-index: 2;
 }
 
@@ -52,6 +52,7 @@ html,body{
     overflow: hidden;
     position: relative;
     z-index: 3;
+    border-radius: 50%;
 }
 
 .header_logo img{
@@ -168,7 +169,7 @@ html,body{
         color: #fff;
     }
 }
-.buttonlog {background-image: linear-gradient(to right, #3D7EAA 0%, #FFE47A 51%, #3D7EAA 100%)}
+/*.buttonlog {background-image: linear-gradient(to right, #3D7EAA 0%, #FFE47A 51%, #3D7EAA 100%)}
 .buttonlog {
     margin: 10px;
     padding: 15px 45px;
@@ -184,9 +185,9 @@ html,body{
 
 .buttonlog:hover {
     background-position: right center; /* change the direction of the change here */
-    color: #fff;
+   /* color: #fff;
     text-decoration: none;
-}
+}  */
 
 .content {
     padding: 200px 0px 0px 0px;
@@ -202,4 +203,32 @@ html,body{
     content{
         padding: 70px 0px 0px 0px;
     }
+}
+
+
+.topHeader.hasSlider {
+    height: 100%; position: relative;
+}
+
+.header {
+    padding: 20px 0;
+    position: relative;
+    z-index: 2;
+}
+
+.mainSlider {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top:0;
+}
+
+.slick-list, .slick-list * {
+    height:100%
+}
+.slick-dotted.slick-slider{
+    margin-bottom: 0;
+}
+.slick-dots{
+    bottom:20px;
 }

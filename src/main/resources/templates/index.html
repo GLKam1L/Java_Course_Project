@@ -2,16 +2,30 @@
 <html xmlns:th="http://www.w3.org/1999/xhtml" lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Index Page</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link media="all" rel="stylesheet" th:href="@{/css/style.css}">
+    <script th:src="@{https://code.jquery.com/jquery-3.4.1.slim.min.js}"></script>
+    <script th:src="@{http://code.jquery.com/jquery-latest.min.js}"></script>
+    <script th:src="@{https://unpkg.com/swiper/swiper-bundle.min.js}"></script>
+    <script th:src="@{/jscripts/slick.js}"></script>
+    <script th:src="@{/jscripts/script.js}"></script>
+
+    <link rel="stylesheet" th:href="@{/css/slick-theme.css}">
+    <link rel="stylesheet" th:href="@{/css/slick.css}">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}">
+    <link rel="stylesheet" th:href="@{/css/bootstrap-grid.css}">
+    <title>Index Page</title>
+
 </head>
 <body>
 
-<header class="header">
-    <div class="container">
+<header class="headerm">
+    <div class="containerm">
         <div class="header_body">
             <a href="@{/index}" class="header_logo">
-                <img th:src="@{/images/Pics/logo1b.jpg}" alt="">
+                <img th:src="@{/images/logo12.png}" class="header_logo">
             </a>
             <div class="header_burger">
                 <span></span>
@@ -19,29 +33,37 @@
             <nav class="header_menu">
                 <ul class="header_list">
                     <li>
-                        <a th:href="@{/History}" class="header_link">Главная</a>
+                        <a th:href="@{/login}" class="header_link">Войти</a>
                     </li>
                     <li>
-                        <a th:href="@{/History}" class="header_link">Войти</a>
+                        <a th:href="@{/registration}" class="header_link">Регистрация</a>
                     </li>
-                    <li>
-                        <a th:href="@{/History}" class="header_link">Регистрация</a>
-                    </li>
+                    <form th:if="${user != 'anonymous'}" th:action="@{/logout}" method="post">
+                        <input class="buttonlog" type="submit" value="logout">
+                    </form>
                 </ul>
             </nav>
         </div>
     </div>
 </header>
-<p th:text="${user}"></p>
 
-<form th:if="${user != 'anonymous'}" th:action="@{/logout}" method="post">
-    <input class="buttonlog" type="submit" value="logout">
-</form>
+<div class="topHeader">
+
+    <div class="slider mainSlider">
+        <div class="slide" th:style=" 'background: url(/images/1.jpeg); background-size: cover;'"></div>
+        <div class="slide" th:style=" 'background: url(/images/2.jpg); background-size: cover;'"></div>
+    </div>
+</div>
+
+<div class="container">
+    <p>Some text</p>
+    <p>Some text</p>
+</div>
+
+<p th:text="${user}"></p>
 
 <h2>Index Page</h2>
 
-<a th:href="@{/login}">login page</a><br>
-<a th:href="@{/registration}">registration page</a><br>
 <a th:href="@{/foruser}">foruser page</a><br>
 <a th:href="@{/foradmin}">foradmin page</a><br>
 </body>
