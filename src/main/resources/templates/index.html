@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index Page</title>
+    <link media="all" rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<header class="header">
+    <div class="container">
+        <div class="header_body">
+            <a href="@{/index}" class="header_logo">
+                <img th:src="@{/images/Pics/logo1b.jpg}" alt="">
+            </a>
+            <div class="header_burger">
+                <span></span>
+            </div>
+            <nav class="header_menu">
+                <ul class="header_list">
+                    <li>
+                        <a th:href="@{/History}" class="header_link">Главная</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/History}" class="header_link">Войти</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/History}" class="header_link">Регистрация</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+<p th:text="${user}"></p>
+
+<form th:if="${user != 'anonymous'}" th:action="@{/logout}" method="post">
+    <input class="buttonlog" type="submit" value="logout">
+</form>
+
+<h2>Index Page</h2>
+
+<a th:href="@{/login}">login page</a><br>
+<a th:href="@{/registration}">registration page</a><br>
+<a th:href="@{/foruser}">foruser page</a><br>
+<a th:href="@{/foradmin}">foradmin page</a><br>
+</body>
+</html>

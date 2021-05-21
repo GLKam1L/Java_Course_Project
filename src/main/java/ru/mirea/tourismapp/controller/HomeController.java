@@ -1,5 +1,6 @@
 package ru.mirea.tourismapp.controller;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,14 +28,15 @@ public class HomeController {
         return "login";
     }
 
+    @PreAuthorize(value = "hasAnyAuthority('ADMIN', 'USER')")
     @GetMapping("/foruser")
     public String forUser() {
         return "foruser";
     }
 
+    @PreAuthorize(value = "hasAuthority('ADMIN')")
     @GetMapping("/foradmin")
     public String forAdmin() {
-
         return "foradmin";
     }
 }
