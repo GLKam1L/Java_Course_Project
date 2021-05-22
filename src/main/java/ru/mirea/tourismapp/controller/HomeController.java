@@ -35,6 +35,7 @@ public class HomeController {
 
     @GetMapping("/login")
     public String login(){
+
         return "login";
     }
 
@@ -66,4 +67,10 @@ public class HomeController {
         userRepo.save(user);
         return "redirect:/orders";
     }
+
+    @GetMapping("/maldives")
+    public String  maldives() {
+        return "maldives";
+    }
 }
+

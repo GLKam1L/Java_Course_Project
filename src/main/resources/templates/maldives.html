@@ -1,58 +1,26 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.w3.org/1999/xhtml" lang="en">
+<html xmlns:th="http://www.w3.org/1999/xhtml" lang="en"
+      xmlns:sec="http://www.springframework.org/schema/security">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <script th:src="@{https://unpkg.com/swiper/swiper-bundle.min.js}"></script>
+
+    <script th:src="@{https://unpkg.com/swiper@6.6.2/swiper-bundle.min.js}"></script>
+
     <script th:src="@{/jscripts/scriptmk.js}"></script>
+
+
     <link media="all" rel="stylesheet" th:href="@{/css/stylemk.css}">
-    <link media="all" rel="stylesheet" th:href="@{/css/style.css}">
     <title>Title</title>
 </head>
 <body>
 
 <div class="wrapper">
-<header class="headerm">
-    <div class="containerm">
-        <div class="headerm_body">
-            <a href="@{/index}" class="headerm_logo">
-                <img th:src="@{/images/logo12.png}" class="headerm_logo">
-            </a>
-            <div class="headerm_burger">
-                <span></span>
-            </div>
-            <nav class="headerm_menu">
-                <ul class="headerm_list">
-                    <li>
-                        <a th:href="@{/login}" class="headerm_link buttonlog">Войти</a>
-                    </li>
-                    <li>
-                        <a th:href="@{/registration}" class="headerm_link buttonlog">Регистрация</a>
-                    </li>
-                    <form th:if="${user != 'anonymous'}" th:action="@{/logout}" method="post">
-                        <input class="headerm_link buttonlog" type="submit" value="logout">
-                    </form>
-                </ul>
-            </nav>
-        </div>
-    </div>
-</header>
 
     <main class="page">
         <div class="page_wrapper">
-
-
-            <div class="page_screen screen">
-                <div class="screen_content">
-                    <h1 class="screen_title screen_title_bg" data-swiper-parallax="50%"
-                        data-swiper-parallax-opacity="0">Intel Corporation</h1>
-                </div>
-                <div class="screen_body">
-                    <div class="screen_image" data-swiper-parallax="35%" data-swiper-parallax-scale="1.1">
-                    </div>
-                </div>
-            </div>
-
 
             <div class="page_screen screen">
                 <div class="screen_content">
@@ -62,6 +30,7 @@
                 </div>
                 <div class="screen_body">
                     <div class="screen_image" data-swiper-parallax="35%" data-swiper-parallax-scale="1.1">
+                        <img th:src="@{/images/mald1.jpg}" alt="">
                     </div>
                 </div>
             </div>
@@ -74,6 +43,7 @@
                 </div>
                 <div class="screen_body">
                     <div class="screen_image" data-swiper-parallax="35%" data-swiper-parallax-scale="1.1">
+                        <img th:src="@{/images/mald2.jpg}" alt="">
                     </div>
                 </div>
             </div>
@@ -86,6 +56,7 @@
                 </div>
                 <div class="screen_body">
                     <div class="screen_image" data-swiper-parallax="35%" data-swiper-parallax-scale="1.1">
+                        <img th:src="@{/images/mald3.jpg}" alt="">
                     </div>
                 </div>
             </div>
@@ -98,6 +69,7 @@
                 </div>
                 <div class="screen_body">
                     <div class="screen_image" data-swiper-parallax="35%" data-swiper-parallax-scale="1.1">
+                        <img th:src="@{/images/mald4.jpg}" alt="">
                     </div>
                 </div>
             </div>
@@ -110,6 +82,7 @@
                 </div>
                 <div class="screen_body">
                     <div class="screen_image" data-swiper-parallax="35%" data-swiper-parallax-scale="1.1">
+                        <img th:src="@{/images/mald5.jpg}" alt="">
                     </div>
                 </div>
             </div>
@@ -120,9 +93,6 @@
     </main>
 
 </div>
-
-<script th:src="@{https://unpkg.com/swiper/swiper-bundle.min.js}"></script>
-<script th:src="@{/jscripts/scriptmk.js}"></script>
 
 </body>
 </html>

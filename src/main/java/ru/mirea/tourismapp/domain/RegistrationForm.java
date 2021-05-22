@@ -12,6 +12,7 @@ public class RegistrationForm {
     private String password;
     private String email;
     private String phone;
+    private String name;
 
     public User toUser(PasswordEncoder passwordEncoder) {
        User user = new User();
@@ -20,6 +21,7 @@ public class RegistrationForm {
        user.setPhone(phone);
        user.setUsername(username);
        user.setRoles(Collections.singleton(Role.USER));
+       user.setName(name);
        return user;
     }
 }
