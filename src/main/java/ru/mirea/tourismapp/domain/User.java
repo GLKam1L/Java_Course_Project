@@ -26,6 +26,8 @@ public class User implements UserDetails {
     private String email;
     private String phone;
 
+    private Long orderId;
+
     @Enumerated(EnumType.STRING)
     @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
     @CollectionTable(name="roles")

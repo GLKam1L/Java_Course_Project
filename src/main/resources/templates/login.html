@@ -3,16 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
+    <link media="all" rel="stylesheet" th:href="@{/css/loginstyle.css}">
     <link media="all" rel="stylesheet" th:href="@{/css/style.css}">
 
 </head>
 <body>
+<div class="log">
+    <div class="logbox">
+        <span class="logheader">Вход</span>
+        <hr>
+        <form th:action="@{/login}" method="post">
+            <p><label for="username">Имя пользователя:</label>
+                <input type="text" name="username" id="username" class="inbox" required>
+            <p><label for="pass">Пароль:</label>
+                <input type="password" name="password" id="pass" class="inbox" required>
+            <p><input type="submit" value="Войти" class="butt">
+        </form>
+        <span class="redirect">Нет учетной записи? <a th:href="@{/registration}">Зарегестрироваться</a></span>
+    </div>
+</div>
 
-<form th:action="@{/login}" method="post">
-    username: <input type="text" name="username"/>
-    password: <input type="text" name="password"/>
-    <input type="submit" value="login">
-</form>
+
 
 </body>
 </html>

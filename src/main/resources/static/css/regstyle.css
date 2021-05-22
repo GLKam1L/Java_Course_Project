@@ -1,0 +1,90 @@
+html{
+    background-image: linear-gradient(to bottom right, #FFE47A  40%, #3D7EAA 100%);
+}
+
+body, html {
+    height: 100%;
+}
+
+.reg{
+    height:100%;
+    display: flex;
+}
+
+.regbox{
+    background-color: rgba(0, 0, 0, 0.45);
+    margin: auto;
+    width: 400px;
+    height: 580px;
+    border-radius: 15px;
+}
+
+.regbox hr{
+    width: 90%;
+}
+
+.regheader{
+    font-size: 50px;
+    margin-bottom: 10px;
+    margin-left: 23%;
+    color: white;
+}
+
+.regbox p{
+    width: 90%;
+    display: inline-table;
+    padding: 5px 20px;
+    margin-bottom:2px;
+}
+label {
+    /*font-family: "Bebas Neue Bold"*/;
+    float: left;
+    width: 100%;
+    top: 0px;
+    text-align: left;
+    line-height: 1.5;
+}
+
+.inbox{
+    width: 95%;
+    height: 32px;
+    padding: 0px 10px;
+    background-color: rgba(0,0,0,0.1);
+    border: none;
+    display: inline;
+    color: #303030;
+    font-size: 16px;
+    font-weight: 400;
+    float: left;
+    border-radius: 5px;
+}
+
+.butt {
+    background-image: linear-gradient(to right, #3D7EAA 0%, #FFE47A  51%, #3D7EAA  100%)
+}
+.butt {
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    border-radius: 10px;
+    display: block;
+    height: 48px;
+    line-height:40px;
+    font-size: 25px;
+}
+
+.butt:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
+
+@font-face {
+    font-family: "Bebas Neue Bold";
+    src:  url("../fonts/BebasNeue Bold.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}

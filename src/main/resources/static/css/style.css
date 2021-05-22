@@ -16,7 +16,7 @@ html,body{
 /* Основные стили */
 
 .containerm {
-    max-width: 100%;
+    max-width: 97%;
     margin: 0px auto;
     padding: 0px 10px;
 }
@@ -36,18 +36,18 @@ html,body{
     width: 100%;
     height: 100%;
     /*background: rgb(0,149,255);
-    background: linear-gradient(90deg, rgba(254,255,0,1) 0%, rgba(0,149,255,1) 100%);*/
+    background: linear-gradient(90deg, rgba(254,255,0,1) 0%, rgba(0,149,255,1) 100%); */
     z-index: 2;
 }
 
-.header_body {
+.headerm_body {
     position: relative;
     display: flex;
     justify-content: space-between;
     height: 60px;
     align-items: center;
 }
-.header_logo {
+.headerm_logo {
     flex: 0 0 50px;
     overflow: hidden;
     position: relative;
@@ -55,29 +55,29 @@ html,body{
     border-radius: 50%;
 }
 
-.header_logo img{
+.headerm_logo img{
     max-width: 100%;
     display: block;
 }
 
-.header_burger {
+.headerm_burger{
     display: none;
 }
 
 .header_menu {}
 
-.header_list {
+.headerm_list {
     display: flex;
     position: relative;
     z-index: 2;
 }
 
-.header_list li{
+.headerm_list li{
     list-style: none;
-    margin: 0px 0px 0px 20px;
+    margin: 15px 0px 0px 20px;
 }
 
-.header_link {
+.headerm_link {
     color: #fff;
     text-transform: uppercase;
     font-size: 18px;
@@ -169,25 +169,33 @@ html,body{
         color: #fff;
     }
 }
-/*.buttonlog {background-image: linear-gradient(to right, #3D7EAA 0%, #FFE47A 51%, #3D7EAA 100%)}
-.buttonlog {
-    margin: 10px;
-    padding: 15px 45px;
-    text-align: center;
-    text-transform: uppercase;
-    transition: 0.5s;
-    background-size: 200% auto;
-    color: white;
-    box-shadow: 0 0 20px #eee;
-    border-radius: 10px;
-    display: block;
+
+@media (min-width: 768px) {
+    .buttonlog {
+        background-image: linear-gradient(to right, #3D7EAA 0%, #FFE47A 51%, #3D7EAA 100%)
+    }
+
+    .buttonlog {
+        margin: 10px;
+        padding: 10px 45px;
+        text-align: center;
+        text-transform: uppercase;
+        transition: 0.5s;
+        background-size: 200% auto;
+        color: white;
+        border-radius: 10px;
+        display: block;
+        z-index: 51;
+    }
+
+    .buttonlog:hover {
+        background-position: right center; /* change the direction of the change here */
+        color: #fff;
+        text-decoration: none;
+    }
 }
 
-.buttonlog:hover {
-    background-position: right center; /* change the direction of the change here */
-   /* color: #fff;
-    text-decoration: none;
-}  */
+
 
 .content {
     padding: 200px 0px 0px 0px;
