@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.w3.org/1999/xhtml" lang="en"
+<html xmlns:th="http://www.thymeleaf.org" lang="en"
       xmlns:sec="http://www.springframework.org/schema/security">
 <head>
     <meta charset="UTF-8">
@@ -7,8 +7,10 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <script th:src="@{https://code.jquery.com/jquery-3.4.1.slim.min.js}"></script>
-    <script th:src="@{http://code.jquery.com/jquery-latest.min.js}"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
 
     <script th:src="@{/jscripts/slick.js}"></script>
     <script th:src="@{/jscripts/script.js}"></script>
@@ -37,17 +39,19 @@
             <nav class="headerm_menu">
                 <ul class="headerm_list">
                     <li>
-                        <a sec:authorize="isAnonymous()" th:href="@{/login}" class="headerm_link buttonlog">Войти</a>
+                        <a sec:authorize="isAnonymous()" th:href="@{/login}" class="headerm_link">Войти</a>
                     </li>
                     <li>
-                        <a sec:authorize="isAnonymous()" th:href="@{/registration}" class="headerm_link buttonlog">Регистрация</a>
+                        <a sec:authorize="isAnonymous()" th:href="@{/registration}" class="headerm_link">Регистрация</a>
                     </li>
                     <li>
-                        <p sec:authorize="hasAuthority('USER')">Добрый день,</p>
+                        <p class="headerm_link" sec:authorize="hasAuthority('USER')">Добрый день, <span class="headerm_link" th:text="${user}"></span>
                     </li>
+                    <li>
                     <form th:if="${user != 'anonymous'}" th:action="@{/logout}" method="post">
-                        <input class="headerm_link buttonlog" type="submit" value="logout">
+                        <input class="headerm_link" type="submit" value="Выйти">
                     </form>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -103,8 +107,6 @@
 
 
 </div>
-
-<p th:text="${user}"></p>
 
 <h2>Index Page</h2>
 

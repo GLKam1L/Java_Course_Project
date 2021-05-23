@@ -5,6 +5,7 @@ import ru.mirea.tourismapp.domain.Order;
 
 public interface OrderRepo extends CrudRepository<Order,Long> {
 
-    Iterable<Order> findAllByStatus(boolean status);
     Order findOrderById(Long id);
+    Iterable<Order> findAllByUserId(Long id);
+    Iterable<Order> findAllByCountryAndStatus(String country, boolean status);
 }

@@ -26,6 +26,7 @@ public class HomeController {
     public String index(@AuthenticationPrincipal User user, Model model){
         if (user!= null){
             model.addAttribute("user",user.getUsername());
+            model.addAttribute("role", user.getRoles());
             return "index";
         }
 
@@ -41,7 +42,9 @@ public class HomeController {
 
     @PreAuthorize(value = "hasAnyAuthority('ADMIN', 'USER')")
     @GetMapping("/foruser")
-    public String forUser() {
+    public String forUser(@AuthenticationPrincipal User user, Model model) {
+        Iterable<Order>orders=orderRepo.findAllByUserId(user.getId());
+        model.addAttribute("orders",orders);
         return "foruser";
     }
 
@@ -52,8 +55,8 @@ public class HomeController {
     }
 
     @GetMapping("/orders")
-    public String orders(Model model) {
-        Iterable<Order>orders=orderRepo.findAllByStatus(false);
+    public String orders(Model model, @RequestParam String country) {
+        Iterable<Order>orders=orderRepo.findAllByCountryAndStatus(country,true);
         model.addAttribute("orders",orders);
         return "orders";
     }
@@ -62,6 +65,7 @@ public class HomeController {
     public String reserve(@RequestParam Long id, @AuthenticationPrincipal User user, Model model){
         Order order = orderRepo.findOrderById(id);
         order.setStatus(true);
+        order.setUserId(user.getId());
         orderRepo.save(order);
         user.setOrderId(order.getId());
         userRepo.save(user);
@@ -72,5 +76,11 @@ public class HomeController {
     public String  maldives() {
         return "maldives";
     }
+
+    @GetMapping("/usa")
+    public String  usa() {
+        return "usa";
+    }
+
 }
 

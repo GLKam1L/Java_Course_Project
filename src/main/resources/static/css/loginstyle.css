@@ -58,8 +58,9 @@ label {
 }
 
 .butt {
-    background-image: linear-gradient(to right, #3D7EAA 0%, #FFE47A  51%, #3D7EAA  100%)
+    background-image: linear-gradient(to right, #3D7EAA 0%, #FFE47A  51%, #3D7EAA  100%);
 }
+
 .butt {
     width: 100%;
     text-align: center;
@@ -85,6 +86,7 @@ label {
     /*font-family: "Bebas Neue Bold";*/
     font-size: 15px;
     padding-left: 20px;
+    color:white;
 }
 
 label {
@@ -102,7 +104,7 @@ label {
 }
 
 .redirect a:visited{
-    color: black;
+    background-image: linear-gradient(to right, #ffe47a 40%, #3d7eaa 100%);
 }
 
 
