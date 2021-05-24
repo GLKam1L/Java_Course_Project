@@ -17,6 +17,6 @@ public class Order {
     private String orderName;
     private String airportDeparture;
     private String airportArrive;
-    private Boolean status;
     private Long userId;
+    private String flightN;
 }

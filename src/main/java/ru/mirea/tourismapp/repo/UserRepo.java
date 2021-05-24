@@ -5,4 +5,5 @@ import ru.mirea.tourismapp.domain.User;
 
 public interface UserRepo extends CrudRepository<User,Long> {
     User findByUsername(String name);
+
 }

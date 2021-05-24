@@ -7,16 +7,8 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
-
-    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-
-
-    <script th:src="@{/jscripts/slick.js}"></script>
-    <script th:src="@{/jscripts/script.js}"></script>
-    <script th:src="@{/jscripts/header.js}"></script>
-
     <link media="all" rel="stylesheet" th:href="@{/css/style.css}">
+    <link media="all" rel="stylesheet" th:href="@{/css/profile_header.css}">
     <link rel="stylesheet" th:href="@{/css/slick-theme.css}">
     <link rel="stylesheet" th:href="@{/css/slick.css}">
     <link rel="stylesheet" th:href="@{/css/bootstrap.css}">
@@ -39,6 +31,9 @@
             <nav class="headerm_menu">
                 <ul class="headerm_list">
                     <li>
+                        <p class="headerm_link">Страны</p>
+                    </li>
+                    <li>
                         <a sec:authorize="isAnonymous()" th:href="@{/login}" class="headerm_link">Войти</a>
                     </li>
                     <li>
@@ -48,9 +43,37 @@
                         <p class="headerm_link" sec:authorize="hasAuthority('USER')">Добрый день, <span class="headerm_link" th:text="${user}"></span>
                     </li>
                     <li>
-                    <form th:if="${user != 'anonymous'}" th:action="@{/logout}" method="post">
+                  <form th:if="${user != 'anonymous'}" th:action="@{/logout}" method="post">
                         <input class="headerm_link" type="submit" value="Выйти">
                     </form>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+
+<header class="header">
+    <div class="container">
+        <div class="header_body">
+            <a th:href="@{/}" class="header_logo">
+
+            </a>
+            <div class="header_burger">
+                <span></span>
+            </div>
+            <nav class="header_menu">
+                <ul class="header_list">
+                    <li>
+                        <a th:href="@{/}" class="header_link">HOME</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/reserve}" class="header_link">Страны</a>
+                    </li>
+                    <li>
+                        <form th:action="@{/logout}" method="post">
+                            <input type="submit" value="logout">
+                        </form>
                     </li>
                 </ul>
             </nav>
@@ -109,6 +132,15 @@
 </div>
 
 <h2>Index Page</h2>
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+<script th:src="@{/jscripts/header1.js}"></script>
+<script th:src="@{/jscripts/slick.js}"></script>
+<script th:src="@{/jscripts/script.js}"></script>
+<script th:src="@{/jscripts/header.js}"></script>
 
 </body>
 </html>

@@ -1,0 +1,113 @@
+<!--<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml" lang="en"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>ForUser</title>
+</head>
+<body>
+
+<h2>For User Page</h2>
+<table>
+    <tbody>
+    <tr th:if="${orders.empty}">
+        <td colspan="2"> У вас нет заказов.</td>
+    </tr>
+    <tr th:each="order : ${orders}">
+        <td><p th:text="${order.getOrderName()}"> Название заказа</p></td>
+        <td><p th:text="${order.getDate()}"> Дата вылета </p></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
+-->
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link media="all" rel="stylesheet" th:href="@{/css/profile.css}" type="text/css"/>
+    <link media="all" rel="stylesheet" th:href="@{/css/profile_header.css}" type="text/css"/>
+</head>
+<body>
+<div class="wrapper">
+    <header class="header">
+        <div class="container">
+            <div class="header_body">
+                <a th:href="@{/}" class="header_logo">
+
+                </a>
+                <div class="header_burger">
+                    <span></span>
+                </div>
+                <nav class="header_menu">
+                    <ul class="header_list">
+                        <li>
+                            <a th:href="@{/}" class="header_link">HOME</a>
+                        </li>
+                        <li>
+                            <a th:href="@{/reserve}" class="header_link">Страны</a>
+                        </li>
+                        <li>
+                            <form th:action="@{/logout}" method="post">
+                                <input type="submit" value="logout">
+                            </form>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <img th:src="@{/images/background.jpg}" alt="">
+
+    <div class="profile">
+        <h1>PERSONAL ACCOUNT</h1>
+        <hr>
+        <div class="data">
+            <div class="main_data">
+                <img th:src="@{/images/profile.png}">
+                <p th:text="${user.getName}"></p>
+            </div>
+            <div class="extra_data">
+                <span class="info">user information</span>
+                <p th:text="'Имя пользователя: ' + ${user.getUsername()}"></p>
+                <p th:text="'Адрес электронной почты: ' + ${user.getEmail()}"></p>
+                <p th:text="'Номер телефона: ' + ${user.getPhone()}"></p>
+
+            </div>
+        </div>
+        <h2 class="historyh1">Заказы</h2>
+        <div class="history">
+            <table>
+                <tbody>
+                <tr th:if="${orders.empty}">
+                    <td colspan="2"> Вы не сделали ещё ни одного заказа</td>
+                </tr>
+                <tr class="firstTR" th:if="${!orders.empty}">
+                    <td><p>Название путешествия</p></td>
+                    <td><p>Дата</p></td>
+                    <td><p>Страна</p></td>
+                    <td><p>Аэропорт прилета</p></td>
+                    <td><p>Аэропорт вылета</p></td>
+                </tr>
+                <tr th:each="order : ${orders}">
+                    <td><p th:text="${order.getOrderName()}"></p></td>
+                    <td><p th:text="${order.getDate()}"></p></td>
+                    <td><p th:text="${order.getCountry()}"></p>
+                    </td>
+                    <td><p th:text="${order.getAirportArrive()}"></p></td>
+                    <td><p th:text="${order.getAirportDeparture()}"></p></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script th:src="@{https://code.jquery.com./jquery-3.4.1.slim.min.js}"></script>
+<script th:src="@{/jscripts/header1.js}"></script>
+</body>
+</html>

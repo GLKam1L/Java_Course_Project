@@ -73,16 +73,14 @@
             <a class="sec_menu_link"></a>
             <a href="amd.html" class="sec_menu_link">США</a>
             <a class="sec_menu_link"></a>
-            <a href="apple.html" style="color:#5e5373" class="sec_menu_link">Мальдивы</a>
+            <a href="apple.html" style="color:#FFE47A" class="sec_menu_link">Мальдивы</a>
             <a class="sec_menu_link"></a>
             <a href="qualcomm.html" class="sec_menu_link">Индия</a>
             <a class="sec_menu_link"></a>
             <a href="mediatek.html" class="sec_menu_link">ОАЭ</a>
             <a class="sec_menu_link"></a>
-            <a href="orders" class="sec_menu_link tickbut">Билеты</a>
+            <a th:href="@{/orders?country=maldives}" class="sec_menu_link tickbut">Билеты</a>
             <a class="sec_menu_link"></a>
-
-
         </sec_nav>
     </sec_head1>
 
@@ -365,7 +363,7 @@
             </div>
             <div class="moments">
                 <div class="moments__container _container">
-                        <a th:href="@{/orders}" class="buttonlog">Купить билеты</a>
+                        <a th:href="@{/orders?country=maldives}" class="buttonlog">Купить билеты</a>
                 </div>
             </div>
         </div>
