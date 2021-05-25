@@ -1,28 +1,3 @@
-<!--<!DOCTYPE html>
-<html xmlns:th="http://www.w3.org/1999/xhtml" lang="en"
->
-<head>
-    <meta charset="UTF-8">
-    <title>ForUser</title>
-</head>
-<body>
-
-<h2>For User Page</h2>
-<table>
-    <tbody>
-    <tr th:if="${orders.empty}">
-        <td colspan="2"> У вас нет заказов.</td>
-    </tr>
-    <tr th:each="order : ${orders}">
-        <td><p th:text="${order.getOrderName()}"> Название заказа</p></td>
-        <td><p th:text="${order.getDate()}"> Дата вылета </p></td>
-    </tr>
-    </tbody>
-</table>
-
-</body>
-</html>
--->
 
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
@@ -66,14 +41,17 @@
 
     <div class="profile">
         <h1 class="historyh1">Личный кабинет</h1>
-        <hr>
         <div class="data">
             <div class="main_data">
-                <img class="bim" th:src="@{/images/ava.png}">
+                <img class="bim" th:src="@{/images/ava3.jpg}">
                 <p th:text="${user.getName}"></p>
             </div>
             <div class="extra_data">
-                <span class="info">user information</span>
+                <br>
+                <br>
+                <br>
+                <br>
+                <span class="info">Об аккаунте</span>
                 <p th:text="'Имя пользователя: ' + ${user.getUsername()}"></p>
                 <p th:text="'Адрес электронной почты: ' + ${user.getEmail()}"></p>
                 <p th:text="'Номер телефона: ' + ${user.getPhone()}"></p>
@@ -85,15 +63,15 @@
             <table>
                 <tbody>
                 <tr th:if="${orders.empty}">
-                    <td colspan="2"> Вы не сделали ещё ни одного заказа</td>
+                    <td colspan="2">У вас пока нет заказов</td>
                 </tr>
                 <tr class="firstTR" th:if="${!orders.empty}">
                     <td><p>Название путешествия</p></td>
                     <td><p>Дата</p></td>
                     <td><p>Страна</p></td>
                     <td><p>Город</p></td>
-                    <td><p>Аэропорт прилета</p></td>
                     <td><p>Аэропорт вылета</p></td>
+                    <td><p>Аэропорт прилета</p></td>
                     <td><p>Номер рейса</p></td>
                 </tr>
                 <tr th:each="order : ${orders}">
@@ -101,8 +79,8 @@
                     <td><p th:text="${order.getDate()}"></p></td>
                     <td><p th:text="${order.getCountry()}"></p></td>
                     <td><p th:text="${order.getCity()}"></p></td>
-                    <td><p th:text="${order.getAirportArrive()}"></p></td>
                     <td><p th:text="${order.getAirportDeparture()}"></p></td>
+                    <td><p th:text="${order.getAirportArrive()}"></p></td>
                     <td><p th:text="${order.getFlightN()}"></p></td>
                 </tr>
                 </tbody>

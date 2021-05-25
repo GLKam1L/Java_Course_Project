@@ -153,12 +153,9 @@ img{
 .extra_data{
     font-family: InterBold;
     padding: 5px;
-    border: 1px solid;
-    border-image: linear-gradient(20deg, #dcc150 38%, #3D7EAA 65%);
-    border-image-slice: 1;
-    border-radius:3px;
+    border-radius:30px;
     font-size: 16px;
-
+    text-align:right;
 }
 
 .bim{

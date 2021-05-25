@@ -1,3 +1,16 @@
+@font-face {
+    src: url(../fonts/InterBold.otf);
+    font-family: 'InterBold';
+    font-style: normal;
+    font-weight: normal;
+}
+@font-face {
+    src: url(../fonts/InterBlack.otf);
+    font-family: 'InterBlack';
+    font-style: normal;
+    font-weight: normal;
+}
+
 body{
     background-color: #353535;
     position: fixed;
@@ -29,25 +42,23 @@ img{
     height: 100%;
     position: fixed;
     z-index: 1;
-    background-color: #2d2d2d;
-    opacity: 0.96;
+    background-color: #2b2b2b;
+    opacity: 0.9;
     width: 80%;
     margin-left: 10%;
     height: 86%;
+    border-radius: 50px;
 
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 
 .profile h1{
     font-size: 400%;
-    font-family: LoveloLineBold;
     text-align: center;
     margin: 0.5%;
 }
 
 .profile h2{
     font-size: 300%;
-    font-family: LoveloLineBold;
     text-align: center;
     margin: 0.5%;
 }
@@ -66,9 +77,13 @@ img{
     width: 80%;
     overflow: auto;
     text-align: center;
+    border-radius: 0px 0px 36px 36px;
     /*box-shadow: 0 0 10px rgba(0,0,0,0.5); Параметры тени */
 }
 
+.historyh1{
+    font-family: InterBlack;
+}
 
 .history table{
     width: 100%;

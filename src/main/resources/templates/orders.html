@@ -95,6 +95,7 @@
     <img th:src="@{/images/background.jpg}" alt="">
 
     <div class="profile">
+        <br>
         <h2 class="historyh1">Доступные билеты</h2>
         <div class="history">
             <table>
@@ -107,7 +108,7 @@
                     <td><p>Дата</p></td>
                     <td><p>Страна</p></td>
                     <td><p>Город</p></td>
-                    <td></td>
+                    <td>Бронирование</td>
                 </tr>
                 <tr th:each="order : ${orders}">
                     <td class="line"><p th:text="${order.getOrderName()}"></p></td>
