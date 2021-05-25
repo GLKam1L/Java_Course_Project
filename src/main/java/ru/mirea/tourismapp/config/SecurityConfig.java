@@ -23,25 +23,26 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public UserDetailsService userDetailsService;
 
     @Bean
-    public PasswordEncoder encoder(){
+    public PasswordEncoder encoder() {
         return new BCryptPasswordEncoder(10);
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-        .antMatchers("/","/login","/registration","/maldives","/usa","/india","/emirates", "/australia").permitAll()
-        .anyRequest().authenticated()
-        .and()
-        .formLogin().loginPage("/login").defaultSuccessUrl("/",true)
-        .and()
-        .logout().logoutUrl("/logout").logoutSuccessUrl("/").permitAll();
+                .antMatchers("/", "/login", "/registration", "/maldives", "/usa", "/india", "/emirates", "/australia").permitAll()
+                .anyRequest().authenticated()
+                .and()
+                .formLogin().loginPage("/login").defaultSuccessUrl("/", true)
+                .and()
+                .logout().logoutUrl("/logout").logoutSuccessUrl("/").permitAll();
     }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService).passwordEncoder(encoder());
     }
+
     public void configure(WebSecurity web) {
         web.ignoring()
                 .antMatchers(

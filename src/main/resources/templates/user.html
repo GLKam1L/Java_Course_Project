@@ -28,7 +28,7 @@
                         </li>
                         <li>
                             <form th:action="@{/logout}" method="post">
-                                <input class="buttonlogout2" type="submit" value="logout">
+                                <input class="buttonlogout2" type="submit" value="Выйти">
                             </form>
                         </li>
                     </ul>
@@ -51,7 +51,7 @@
                 <br>
                 <br>
                 <br>
-                <span class="info">Об аккаунте</span>
+                <span class="info">Персональные данные</span>
                 <p th:text="'Имя пользователя: ' + ${user.getUsername()}"></p>
                 <p th:text="'Адрес электронной почты: ' + ${user.getEmail()}"></p>
                 <p th:text="'Номер телефона: ' + ${user.getPhone()}"></p>

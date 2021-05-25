@@ -1,3 +1,17 @@
+@font-face {
+    src: url(../fonts/InterBold.otf);
+    font-family: 'InterBold';
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    src: url(../fonts/InterBlack.otf);
+    font-family: 'InterBlack';
+    font-style: normal;
+    font-weight: normal;
+}
+
 .header {
     opacity: 0.96;
     position: fixed;
@@ -156,6 +170,7 @@
 }
 
 .buttonlogout2{
+    font-family: InterBold;
     text-transform: uppercase;
     text-decoration: none;
     background-color: #FFE47A;
