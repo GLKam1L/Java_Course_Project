@@ -46,14 +46,14 @@
                 <nav class="header_menu">
                     <ul class="header_list">
                         <li>
-                            <a th:href="@{/}" class="header_link">HOME</a>
+                            <a th:href="@{/}" class="header_link">Главная</a>
                         </li>
                         <li>
-                            <a th:href="@{/reserve}" class="header_link">Страны</a>
+                            <a th:href="@{/maldives}" class="header_link">Страны</a>
                         </li>
                         <li>
                             <form th:action="@{/logout}" method="post">
-                                <input type="submit" value="logout">
+                                <input class="buttonlogout2" type="submit" value="logout">
                             </form>
                         </li>
                     </ul>
@@ -65,11 +65,11 @@
     <img th:src="@{/images/background.jpg}" alt="">
 
     <div class="profile">
-        <h1>PERSONAL ACCOUNT</h1>
+        <h1 class="historyh1">Личный кабинет</h1>
         <hr>
         <div class="data">
             <div class="main_data">
-                <img th:src="@{/images/profile.png}">
+                <img class="bim" th:src="@{/images/ava.png}">
                 <p th:text="${user.getName}"></p>
             </div>
             <div class="extra_data">
@@ -91,16 +91,19 @@
                     <td><p>Название путешествия</p></td>
                     <td><p>Дата</p></td>
                     <td><p>Страна</p></td>
+                    <td><p>Город</p></td>
                     <td><p>Аэропорт прилета</p></td>
                     <td><p>Аэропорт вылета</p></td>
+                    <td><p>Номер рейса</p></td>
                 </tr>
                 <tr th:each="order : ${orders}">
                     <td><p th:text="${order.getOrderName()}"></p></td>
                     <td><p th:text="${order.getDate()}"></p></td>
-                    <td><p th:text="${order.getCountry()}"></p>
-                    </td>
+                    <td><p th:text="${order.getCountry()}"></p></td>
+                    <td><p th:text="${order.getCity()}"></p></td>
                     <td><p th:text="${order.getAirportArrive()}"></p></td>
                     <td><p th:text="${order.getAirportDeparture()}"></p></td>
+                    <td><p th:text="${order.getFlightN()}"></p></td>
                 </tr>
                 </tbody>
             </table>

@@ -19,4 +19,5 @@ public class Order {
     private String airportArrive;
     private Long userId;
     private String flightN;
+    private String city;
 }

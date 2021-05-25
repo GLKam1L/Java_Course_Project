@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en"
+<html xmlns:th="http://www.w3.org/1999/xhtml" lang="en"
       xmlns:sec="http://www.springframework.org/schema/security">
 <head>
     <meta charset="UTF-8">
@@ -9,20 +9,16 @@
 
     <link media="all" rel="stylesheet" th:href="@{/css/style.css}">
     <link media="all" rel="stylesheet" th:href="@{/css/profile_header.css}">
-    <link rel="stylesheet" th:href="@{/css/slick-theme.css}">
-    <link rel="stylesheet" th:href="@{/css/slick.css}">
-    <link rel="stylesheet" th:href="@{/css/bootstrap.css}">
-    <link rel="stylesheet" th:href="@{/css/bootstrap-grid.css}">
 
-    <title>Index Page</title>
+    <title>Adios Air</title>
 
 </head>
 <body>
 
-<header class="headerm">
+<header class="headerm1">
     <div class="containerm">
         <div class="headerm_body">
-            <a href="@{/index}" class="headerm_logo">
+            <a th:href="@{/}" class="headerm_logo">
                 <img th:src="@{/images/logo12.png}" class="headerm_logo">
             </a>
             <div class="headerm_burger">
@@ -31,21 +27,22 @@
             <nav class="headerm_menu">
                 <ul class="headerm_list">
                     <li>
-                        <p class="headerm_link">Страны</p>
-                    </li>
-                    <li>
                         <a sec:authorize="isAnonymous()" th:href="@{/login}" class="headerm_link">Войти</a>
                     </li>
                     <li>
                         <a sec:authorize="isAnonymous()" th:href="@{/registration}" class="headerm_link">Регистрация</a>
                     </li>
                     <li>
-                        <p class="headerm_link" sec:authorize="hasAuthority('USER')">Добрый день, <span class="headerm_link" th:text="${user}"></span>
+                        <p class="headerm_link" sec:authorize="hasAuthority('USER')">Добрый день, <span
+                                class="headerm_link" th:text="${name}"></span>
                     </li>
                     <li>
-                  <form th:if="${user != 'anonymous'}" th:action="@{/logout}" method="post">
-                        <input class="headerm_link" type="submit" value="Выйти">
-                    </form>
+                        <a sec:authorize="not isAnonymous()" th:href="@{/user}" class="headerm_link">Личный кабинет</a>
+                    </li>
+                    <li>
+                        <form th:if="${user != 'anonymous'}" th:action="@{/logout}" method="post">
+                            <input class="buttonlogout" type="submit" value="Выйти">
+                        </form>
                     </li>
                 </ul>
             </nav>
@@ -65,15 +62,19 @@
             <nav class="header_menu">
                 <ul class="header_list">
                     <li>
-                        <a th:href="@{/}" class="header_link">HOME</a>
+                        <a th:href="@{/australia}" class="headerm_link">Австралия</a>
                     </li>
                     <li>
-                        <a th:href="@{/reserve}" class="header_link">Страны</a>
+                        <a th:href="@{/usa}" class="headerm_link">США</a>
                     </li>
                     <li>
-                        <form th:action="@{/logout}" method="post">
-                            <input type="submit" value="logout">
-                        </form>
+                        <a th:href="@{/maldives}" class="headerm_link">Мальдивы</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/india}" class="headerm_link">Индия</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/emirates}" class="headerm_link">ОАЭ</a>
                     </li>
                 </ul>
             </nav>
@@ -81,64 +82,29 @@
     </div>
 </header>
 
-<div class="topHeader">
 
-    <div class="slider mainSlider">
-        <div class="slide" th:style=" 'background: url(/images/1.jpeg); background-size: cover;'"></div>
-        <div class="slide" th:style=" 'background: url(/images/2.jpg); background-size: cover;'"></div>
+<div class="blocks">
+    <div class="container_slider_css">
+        <img class="photo_slider_css" th:src="@{/images/1.jpeg}" alt="">
+        <img class="photo_slider_css" th:src="@{/images/2.jpg}" alt="">
+        <img class="photo_slider_css" th:src="@{/images/australiaM.jpg}" alt="">
+        <img class="photo_slider_css" th:src="@{/images/emiratesM.jpg}" alt="">
+    </div>
+    <div class="textdient">
+        <h2>Для хорошего отдыха нужна хорошая компания. Компания AdiosAir.</h2>
+        <p class="seclet">Отдых - наша работа.</p>
     </div>
 </div>
 
-<div class="container">
-    <p>Some text</p>
-    <p>Some text</p>
-    <p>Some text</p>
-    <p>Some text</p>
-    <p>Some text</p>
-    <p>Some text</p>
-    <p>Some text</p>
-    <p>Some text</p>
-    <p>Some text</p>
-    <p>Some text</p>
-    <p>Some text</p>
-    <p>Some text</p>
-    <p>Some text</p>
-    <p>Some text</p>
-    <p>Some text</p>
-    <p>Some text</p>
-    <p>Some text</p>
-    <p>Some text</p>
-    <p>Some text</p>
-    <p>Some text</p>
-    <p>Some text</p>
-    <p>Some text</p>
-    <p>Some text</p>
-    <p>Some text</p>
-    <p>Some text</p>
-    <p>Some text</p>
-    <p>Some text</p>
-    <p>Some text</p>
-    <p>Some text</p>
-    <p>Some text</p>
-    <p>Some text</p>
-    <p>Some text</p>
-    <p>Some text</p>
-    <p>Some text</p>
-    <p>Some text</p>
-
-
-
-
+<div class="gr">
 </div>
 
-<h2>Index Page</h2>
 
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
 
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 
 <script th:src="@{/jscripts/header1.js}"></script>
-<script th:src="@{/jscripts/slick.js}"></script>
 <script th:src="@{/jscripts/script.js}"></script>
 <script th:src="@{/jscripts/header.js}"></script>
 

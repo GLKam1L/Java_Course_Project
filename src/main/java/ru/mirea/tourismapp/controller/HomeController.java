@@ -22,20 +22,23 @@ public class HomeController {
 
     @Autowired
     UserRepo userRepo;
+
     @GetMapping
-    public String index(@AuthenticationPrincipal User user, Model model){
-        if (user!= null){
-            model.addAttribute("user",user.getUsername());
+    public String index(@AuthenticationPrincipal User user, Model model) {
+        if (user != null) {
+            model.addAttribute("user", user.getUsername());
             model.addAttribute("role", user.getRoles());
+            model.addAttribute("name", user.getName());
             return "index";
         }
 
-        model.addAttribute("user","anonymous");
+        model.addAttribute("user", "anonymous");
         return "index";
     }
 
     @GetMapping("/login")
-    public String login(){
+    public String login() {
+
 
         return "login";
     }
@@ -44,8 +47,8 @@ public class HomeController {
     @GetMapping("/user")
     public String forUser(@AuthenticationPrincipal User user, Model model) {
         model.addAttribute("user", user);
-        Iterable<Order>orders=orderRepo.findAllByUserId(user.getId());
-        model.addAttribute("orders",orders);
+        Iterable<Order> orders = orderRepo.findAllByUserId(user.getId());
+        model.addAttribute("orders", orders);
         return "user";
     }
 
@@ -56,14 +59,15 @@ public class HomeController {
     }
 
     @GetMapping("/orders")
-    public String orders(Model model, @RequestParam String country) {
-        Iterable<Order>orders=orderRepo.findAllByCountry(country);
-        model.addAttribute("orders",orders);
+    public String orders(@AuthenticationPrincipal User user, Model model, @RequestParam String country) {
+        Iterable<Order> orders = orderRepo.findAllByCountry(country);
+        model.addAttribute("orders", orders);
+        model.addAttribute("name", user.getName());
         return "orders";
     }
 
     @GetMapping("/reserve")
-    public String reserve(@RequestParam Long id, @AuthenticationPrincipal User user, Model model){
+    public String reserve(@RequestParam Long id, @AuthenticationPrincipal User user, Model model) {
         Order order = orderRepo.findOrderById(id);
         order.setUserId(user.getId());
         orderRepo.save(order);
@@ -73,18 +77,53 @@ public class HomeController {
     }
 
     @GetMapping("/done")
-    public String  done() {
+    public String done() {
         return "done";
     }
 
     @GetMapping("/maldives")
-    public String  maldives() {
+    public String maldives(@AuthenticationPrincipal User user, Model model) {
+        if (user != null) {
+
+            model.addAttribute("name", user.getName());
+        }
         return "maldives";
     }
 
     @GetMapping("/usa")
-    public String  usa() {
+    public String usa(@AuthenticationPrincipal User user, Model model) {
+        if (user != null) {
+
+            model.addAttribute("name", user.getName());
+        }
         return "usa";
+    }
+
+    @GetMapping("/emirates")
+    public String emirates(@AuthenticationPrincipal User user, Model model) {
+        if (user != null) {
+
+            model.addAttribute("name", user.getName());
+        }
+        return "emirates";
+    }
+
+    @GetMapping("/australia")
+    public String australia(@AuthenticationPrincipal User user, Model model) {
+        if (user != null) {
+
+            model.addAttribute("name", user.getName());
+        }
+        return "australia";
+    }
+
+    @GetMapping("/india")
+    public String india(@AuthenticationPrincipal User user, Model model) {
+        if (user != null) {
+
+            model.addAttribute("name", user.getName());
+        }
+        return "india";
     }
 
 }

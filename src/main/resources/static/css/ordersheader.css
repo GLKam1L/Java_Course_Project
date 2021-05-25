@@ -1,5 +1,6 @@
 .header {
     opacity: 0.96;
+    font-family: "Arial Black";
     position: fixed;
     width: 96%;
     margin-left: 2.5%;
@@ -26,7 +27,7 @@
     justify-content: space-between;
     height: 80px;
     align-items: center;
-    margin-top:60px;
+    margin-top:128px;
 }
 
 .header_menu {
@@ -51,7 +52,6 @@
 }
 
 .header_list {
-    font-family: InterBold;
     margin-right: 1%;
     display: flex;
     position: relative;
@@ -151,7 +151,7 @@
     }
 
     .header_menu.active {
-        top: 7%;
+        top: 14%;
     }
 }
 

@@ -1,4 +1,9 @@
-@charset "UTF-8";
+@font-face {
+    font-family: 'InterBold';
+    src: url(../fonts/InterBold.otf);
+    font-style: normal;
+    font-weight: normal;
+}
 /*Обнуление*/
 *,
 *:before,
@@ -16,10 +21,6 @@ body {
     font-family: "Verdana";
     color: #ffffff;
     font-size: 16px;
-}
-
-a {
-    color: #5e5373;
 }
 
 h2 {
@@ -271,7 +272,7 @@ h2 {
     height: 20px;
     border-radius: 50%;
     content: "";
-    background-color: #77608d;
+    background-image: linear-gradient(to right, #FFE47A 38%, #3D7EAA 65%);
     position: absolute;
     left: 0;
     top: 8px;
@@ -285,7 +286,7 @@ h2 {
     width: 100%;
     top: 0;
     left: 0;
-    z-index: 40;
+    z-index: 54;
     padding-right: 0px;
     padding-left: 0px;
     background-color: rgba(0, 0, 0, 0.55);
@@ -308,6 +309,8 @@ h2 {
     color: #fff;
     font-size: 20px;
     margin: 0px auto 20px;
+    font-family: InterBold;
+    text-decoration: none;
 }
 
 @media (max-width: 490px) {
@@ -380,6 +383,7 @@ h2 {
 .M2 img{
     max-width: 100%;
     text-align: center;
+    width: 100%;
 }
 
 .M3 img{
@@ -416,5 +420,4 @@ h2 {
     border-image: linear-gradient(20deg, #FFE47A 38%, #3D7EAA 65%);
     border-image-slice: 1;
     border-radius:3px;
-
 }

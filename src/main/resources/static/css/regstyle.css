@@ -1,98 +1,110 @@
-html{
-    background-image: linear-gradient(to bottom right, #FFE47A  40%, #3D7EAA 100%);
+
+@font-face {
+    font-family: 'InterBold';
+    src: url(../fonts/InterBold.otf);
+    font-style: normal;
+    font-weight: normal;
 }
 
-body, html {
-    height: 100%;
+@font-face {
+    font-family: 'InterBlack';
+    src: url(../fonts/InterBlack.otf);
+    font-style: normal;
+    font-weight: normal;
 }
 
-.reg{
-    height:100%;
-    display: flex;
-}
-
-.regbox{
-    background-color: rgba(0, 0, 0, 0.45);
-    margin: auto;
-    width: 400px;
-    height: 580px;
-    border-radius: 15px;
-}
-
-.regbox hr{
-    width: 90%;
-}
-
-.regheader{
-    font-size: 50px;
-    margin-bottom: 10px;
-    margin-left: 18%;
-    color: white;
-}
-
-.regbox p{
-    width: 90%;
-    display: inline-table;
-    padding: 5px 20px;
-    margin-bottom:2px;
-}
-label {
-    /*font-family: "Bebas Neue Bold"*/;
-    float: left;
-    width: 100%;
-    top: 0px;
-    text-align: left;
-    line-height: 1.5;
-    margin-left: 10px;
-}
-
-.inbox{
-    width: 95%;
-    height: 32px;
-    padding: 0px 10px;
-    background-color: rgba(0,0,0,0.1);
-    border: none;
-    display: inline;
-    color: #303030;
-    font-size: 16px;
-    font-weight: 400;
-    float: left;
-    border-radius: 10px;
-}
-
-label{
-    color:white;
+*{
 
 }
 
-.butt {
-    background-image: linear-gradient(to right, #3D7EAA 0%, #FFE47A  51%, #3D7EAA  100%)
-}
-.butt {
-    width: 100%;
-    text-align: center;
+body{
+    position: fixed;
+    padding: 0;
+    margin: 0;
     text-transform: uppercase;
+}
+
+img{
+    top: 0;
+    left: 0;
+    position: absolute;
+    object-fit: cover;
+    height: 100vh;
+    width: 100vw;
+}
+
+.registration{
+    font-family: InterBlack;
+}
+
+.registration-page {
+    position: relative;
+    z-index: 1;
+    background-color: #2d2d2d;
+    width: 20vw;
+    margin:20vh 37vw;
+    padding: 1% 3%;
+    text-align: center;
+    border-radius: 40px;
+    opacity: 0.95;
+}
+.registration-page input {
+    outline: 0;
+    background: #f2f2f2;
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+.registration-page .registration{
+    margin: 5%;
+    font-size: 45px;
+    font-family: InterBlack;
+    text-align: center;
+    color: #ffffff;
+}
+.registration-form button{
+    font-family: InterBold;
+    text-transform: uppercase;
+    outline: 0;
+    background-image: linear-gradient(to right, #3D7EAA 0%, #FFE47A 51%, #3D7EAA 100%);
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: #ffffff;
+    font-size: 26px;
+    cursor: pointer;
+    display: block;
     transition: 0.5s;
     background-size: 200% auto;
-    color: white;
     border-radius: 10px;
-    display: block;
-    height: 48px;
-    line-height:40px;
-    font-size: 25px;
-    border: 0px;
+}
+.registration-form{
+    font-family: InterBold;
 }
 
-.butt:hover {
+.registration-form button:hover {
     background-position: right center; /* change the direction of the change here */
     color: #fff;
     text-decoration: none;
 }
-/*
-@font-face {
-    font-family: "Bebas Neue Bold";
-    src:  url("../fonts/BebasNeue Bold.ttf") format("truetype");
-    font-weight: normal;
-    font-style: normal;
+
+input{
+    border-radius: 10px;
+    font-family: InterBold;
 }
-*/
+
+.message{
+    font-family: InterBold;
+    margin-bottom: 7%;
+    color: white;
+    font-size: 16px;
+}
+.message a{
+    font-family: InterBold;
+    font-size: 16px;
+    text-decoration: none;
+    color: #FFE47A;
+}

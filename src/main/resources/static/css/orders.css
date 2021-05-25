@@ -1,12 +1,3 @@
-@font-face {
-    src: url(../fonts/InterBold.otf);
-    src: url(../fonts/InterBlack.otf);
-    font-family: 'InterBlack';
-    font-family: 'InterBold';
-    font-style: normal;
-    font-weight: normal;
-}
-
 body{
     background-color: #353535;
     position: fixed;
@@ -16,14 +7,13 @@ body{
 }
 
 .history::-webkit-scrollbar {
-    width: 0px;               /* ширина scrollbar */
+    width: 5px;               /* ширина scrollbar */
 }
 .history::-webkit-scrollbar-track {
-    background: #3e3e3e;        /* цвет дорожки */
+    background: #3D7EAA;        /* цвет дорожки */
 }
 .history::-webkit-scrollbar-thumb {
-    background-color: #3e3e3e;    /* цвет плашки */
-    border-radius: 20px;       /* закругления плашки */
+    background-color: #FFE47A;    /* цвет плашки */
 }
 
 img{
@@ -35,27 +25,29 @@ img{
 }
 
 .profile {
-
-    height: 96%;
-    margin-top: 1.1%;
+    margin-top:140px;
+    height: 100%;
     position: fixed;
     z-index: 1;
-    background-color: #2b2b2b;
-    opacity: 0.9;
+    background-color: #2d2d2d;
+    opacity: 0.96;
     width: 80%;
     margin-left: 10%;
-    border-radius: 50px;
-    font-family: InterBlack;
+    height: 86%;
+
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 
 .profile h1{
     font-size: 400%;
+    font-family: LoveloLineBold;
     text-align: center;
     margin: 0.5%;
 }
 
 .profile h2{
     font-size: 300%;
+    font-family: LoveloLineBold;
     text-align: center;
     margin: 0.5%;
 }
@@ -70,17 +62,13 @@ img{
     text-transform: uppercase;
     background-color: #3e3e3e;
     padding: 0;
-    height: 35%;
+    height: 80%;
     width: 80%;
     overflow: auto;
     text-align: center;
-    border-radius: 0px 0px 30px 30px;
     /*box-shadow: 0 0 10px rgba(0,0,0,0.5); Параметры тени */
 }
 
-.historyh1{
-    font-family: InterBlack;
-}
 
 .history table{
     width: 100%;
@@ -95,15 +83,8 @@ img{
 }
 .profile a{
     text-decoration: none;
-    background-color: #8a24b0;
-    box-shadow: 0 0 5px rgba(0,0,0,0.5); /* Параметры тени */
-    color: white;
-    font-weight: 700;
     color: white;
     text-decoration: none;
-    padding: .2em 0.5em;
-    border-radius: 3px;
-    transition: 0.2s;
 }
 
 .profile hr{
@@ -131,9 +112,9 @@ img{
 }
 
 .extra_data .info{
-    font-family: InterBlack;
     text-align: left;
     text-transform: uppercase;
+    font-family: "Arial Black";
     font-size: 250%;
 }
 .data{
@@ -141,12 +122,11 @@ img{
 }
 
 .firstTR{
+    height:38px;
     background-image: linear-gradient(to right, #FFE47A 40%, #3D7EAA 100%);
-    width: 100%;
 }
 
 .extra_data{
-    font-family: InterBold;
     padding: 5px;
     border: 1px solid;
     border-image: linear-gradient(20deg, #dcc150 38%, #3D7EAA 65%);
@@ -156,6 +136,6 @@ img{
 
 }
 
-.bim{
-    border-radius: 50%;
+.line{
+    padding:20px 0;
 }

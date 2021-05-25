@@ -1,12 +1,375 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.w3.org/1999/xhtml" lang="en"
+      xmlns:sec="http://www.springframework.org/schema/security">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
 
-<h2>australia</h2>
+    <!-- Заголовок страницы в браузере -->
+    <title>Австралия</title>
+
+    <meta charset="UTF-8">
+    <!-- Адаптив -->
+    <meta name="viewport" content="width=device-width">
+    <style>
+        a {
+            text-decoration: none;
+        }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            th:src="@{https://code.jquery.com/jquery-3.4.1.slim.min.js}"></script>
+
+    <script th:src="@{/jscripts/header.js}"></script>
+
+    <!-- Подключаем CSS -->
+    <link rel="stylesheet" href="css/style.css" th:href="@{css/style.css}">
+    <link rel="stylesheet" th:href="@{css/stylemk.css}">
+    <!-- Кодировка страницы -->
+
+    <!-- Адаптив -->
+</head>
+<!-- Отображаемое тело страницы -->
+<body>
+<!-- Оболочка для демонстрации -->
+<header class="headerm">
+    <div class="containerm">
+        <div class="headerm_body">
+            <a th:href="@{/}" class="headerm_logo">
+                <img th:src="@{/images/logo12.png}" class="headerm_logo">
+            </a>
+            <div class="headerm_burger">
+                <span></span>
+            </div>
+            <nav class="headerm_menu">
+                <ul class="headerm_list">
+                    <li>
+                        <a sec:authorize="isAnonymous()" th:href="@{/login}" class="headerm_link">Войти</a>
+                    </li>
+                    <li>
+                        <a sec:authorize="isAnonymous()" th:href="@{/registration}" class="headerm_link">Регистрация</a>
+                    </li>
+                    <li>
+                        <p class="headerm_link" sec:authorize="hasAuthority('USER')">Добрый день, <span class="headerm_link" th:text="${name}"></span>
+                    </li>
+                    <li>
+                        <a sec:authorize="not isAnonymous()" th:href="@{/user}" class="headerm_link">Личный кабинет</a>
+                    </li>
+                    <li>
+                        <form th:if="${user != 'anonymous'}" th:action="@{/logout}" method="post">
+                            <input class="buttonlogout" type="submit" value="Выйти">
+                        </form>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+
+
+<sec_head1 class="sec_head1">
+    <sec_nav class="sec_head_menu sec_menu">
+        <a class="sec_menu_link"></a>
+        <a th:href="@{/australia}" style="color:#FFE47A" class="sec_menu_link">Австралия</a>
+        <a class="sec_menu_link"></a>
+        <a th:href="@{/usa}" class="sec_menu_link">США</a>
+        <a class="sec_menu_link"></a>
+        <a th:href="@{/maldives}" class="sec_menu_link">Мальдивы</a>
+        <a class="sec_menu_link"></a>
+        <a th:href="@{india}" class="sec_menu_link">Индия</a>
+        <a class="sec_menu_link"></a>
+        <a th:href="@{emirates}" class="sec_menu_link">ОАЭ</a>
+        <a class="sec_menu_link"></a>
+        <a th:href="@{/orders?country=australia}" class="sec_menu_link tickbut">Билеты</a>
+        <a class="sec_menu_link"></a>
+    </sec_nav>
+</sec_head1>
+
+<!-- Контент -->
+<div class="fullscreen">
+    <div class="fullscreen__content">
+        <h1 class="fullscreen__title _anim-items _anim-no-hide">Австралия</h1>
+        <div class="fullscreen__text _anim-items _anim-no-hide">Мальдивы
+        </div>
+    </div>
+    <div class="fullscreen__image">
+        <img th:src="@{/images/australiaM.jpg}" alt="">
+    </div>
+</div>
+<div class="page">
+    <div class="text">
+        <div class="text__container _container">
+            <h2 class="text__title">Мальдивы</h2>
+            <div class="text__item _anim-items">
+                <p class="_anim-show">
+                    Мальдивы
+                </p>
+            </div>
+            <br>
+            <div class="text__item _anim-items">
+                <h2 class="text__title _anim-show">Apple A4</h2>
+                <p class="_anim-show">
+                    Мальдивы
+                </p>
+            </div>
+            <br>
+            <div class="text__item _anim-items">
+                <div class="text__item _anim-items">
+                    <h2 class="text__title _anim-show">Apple A5</h2>
+                    <p class="_anim-show">
+                        Мальдивы
+                    </p>
+                </div>
+            </div>
+            <br>
+            <div class="text__item _anim-items">
+                <div class="text__item _anim-items">
+                    <h2 class="text__title _anim-show">Apple A6</h2>
+                    <p class="_anim-show">
+                        Мальдивы
+                    </p>
+                </div>
+            </div>
+            <br>
+            <div class="list">
+                <div class="list__container _container">
+                    <h2 class="list__title">Мальдивы</h2>
+                    <ul class="list__items">
+                        <ul class="list__item _anim-items">
+                            <li>Apple A7 — был представлен 10 сентября 2013, вместе с iPhone 5S и является
+                                первым
+                                64-битным мобильным процессором на ARM архитектуре. Система команд ARMv8
+                            </li>
+                            <li>Apple A8 — был представлен 9 сентября 2014, вместе с iPhone 6 и
+                                является очередным 64-битным мобильным процессором на ARM архитектуре. Система
+                                команд ARMv8.
+                            </li>
+                            <li>Apple A9 — был представлен в сентябре 2015 года вместе с iPhone
+                                6s/iPhone 6s Plus. Позже использовался в iPad (5-го поколения) и iPhone SE.
+                                Производился в двух вариантах — по техпроцессу 14 нм FinFET Samsung и 16 нм
+                                FinFET
+                                TSMC. Содержит 2 процессорных ядра с 64-битной архитектурой ARMv8-A,
+                                микроархитектурой Twister.
+                            </li>
+                            <li>Apple A10 Fusion — был представлен 7 сентября 2016 года вместе с iPhone
+                                7/iPhone 7 Plus. Также позже начал использоваться в iPad (6-го поколения) и iPad
+                                (7-го поколения). В нём используется 4 процессорных ядра, два из которых
+                                являются
+                                высокопроизводительными, другие два — энергоэффективными. Содержит порядка 3.3
+                                млрд
+                                транзисторов.
+                            </li>
+                            <li>Apple A11 Bionic — был представлен 12 сентября 2017 вместе с iPhone 8,
+                                iPhone 8 Plus и iPhone X.
+                                Содержит 6 вычислительных ядер, из которых 2 ядра являются производительными, а
+                                4 —
+                                энергоэффективными. Используется 4,3 млрд транзисторов, изготовленных на 10нм
+                                техпроцессе FinFET от TSMC.
+                                Впервые используется встроенная графика собственного производства (вместо
+                                решений от
+                                PowerVR).
+                            </li>
+                            <li>Apple A12 Bionic — был представлен 13 сентября 2018 вместе с iPhone XS,
+                                iPhone XS Max, iPhone XR. Позже были выпущены на этом процессоре iPad mini 5,
+                                iPad
+                                Air 3 и iPad 8
+
+                                Содержит 6 вычислительных ядер, из которых 2 ядра являются производительными, а
+                                4 —
+                                энергоэффективными. Используется 6,9 млрд транзисторов, изготовленных на 7-нм
+                                техпроцессе от TSMC.
+                            </li>
+                            <li>Apple A13 Bionic — модель осени 2019 года, 6-ядерный процессор ARM, использует
+                                2-й
+                                вариант
+                                7-нанометрового техпроцесса TSMC. Содержит 8,5 млрд транзисторов.
+                            </li>
+                            <li>Apple A14 Bionic — модель осени 2020 года, 6-ядерный процессор ARM,
+                                используется новый 5-нанометровый техпроцесс TSMC. Содержит 11,8 млрд
+                                транзисторов.
+                            </li>
+                        </ul>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="list">
+                <div class="list__container _container">
+                    <h2 class="list__title">Мальдивы</h2>
+                    <ul class="list__items">
+                        <ul class="list__item _anim-items">
+                            <li>Apple A5X — был анонсирован 7 марта 2012, вместе с 3-м поколением планшетных
+                                компьютеров iPad 3. Данная система на кристалле имеет четырёхъядерный
+                                графический
+                                ускоритель PowerVR SGX543MP4 вместо ранее использовавшегося двухъядерного. Также
+                                используется четырёхканальный контроллер оперативной памяти, который
+                                предоставляет
+                                пропускную способность до 12.8 ГБ/с, примерно в три раза более высокую чем в A5.
+                                Из-за новых ядер графики и каналов памяти кристалл имеет очень большую площадь,
+                                163
+                                mm², что, к примеру, в два раза больше чем у Nvidia Tegra 3. Большую часть
+                                площади занимает графический сопроцессор. Тактовые частоты двух ядер ARM
+                                Cortex-A9
+                                остались на уровне в 1 ГГц, как и в A5. В отличие от предыдущих процессоров,
+                                оперативная память в системах на базе A5X устанавливается в виде отдельных
+                                микросхем, а не как часть микросборки PoP.
+                            </li>
+                            <li>Apple A6X — был представлен в октябре 2012 года, вместе с iPad 4. Он имеет
+                                два ядра Swift, как и A6, но, в отличие от него работает на более высоких
+                                тактовых
+                                частотах — до 1,4 ГГц и имеет 4-ядерный графический ускоритель модели PowerVR
+                                SGX554MP4.
+                            </li>
+                            <li>Apple A8X — был представлен 16 октября 2014 года, вместе с iPad Air
+                                2. Система команд — ARMv8.
+                            </li>
+                            <li>Apple A9X — был представлен в ноябре 2015 года вместе с iPad Pro c
+                                12,9-дюймовым экраном.
+                                Содержит 2 процессорных ядра с 64-битной архитектурой ARMv8-A, микроархитектурой
+                                Twister.
+                            </li>
+                            <li>Apple A10X Fusion — 64-битный 6-ядерный ARM-микропроцессор 2017 года с
+                                архитектурой
+                                ARMv8-A компании Apple из серии Apple Ax. Изготавливаемый по 10-нанометровому
+                                FinFET
+                                техпроцессу контрактным производителем TSMC.
+                            </li>
+                            <li>Apple A12X Bionic — был представлен 30 октября 2018, вместе с iPad Pro третьего
+                                поколения. Содержит 8 вычислительных ядер, из которых 4 ядра являются
+                                производительными и 4 —
+                                энергоэффективными. Используется 10 млрд транзисторов, изготовленных на 7нм
+                                техпроцессе от TSMC.
+                            </li>
+                            <li>Apple A12Z Bionic - 8-ядерный ARM-микропроцессор 2020 года, применяется в iPad
+                                Pro
+                                (2020) и в ARM Mac mini DTK.
+                            </li>
+                        </ul>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="text__item _anim-items">
+                <h2 class="text__title _anim-show">Mac Apple Silicon</h2>
+                <p class="_anim-show">
+                    В ноябре 2020 года Apple начала для себя новую главу в мире компьютерных процессоров.
+                </p>
+                <br>
+                <div class="M1">
+                    <img src="Pics/M1.jpg" alt="">
+                </div>
+            </div>
+            <div class="text__item _anim-items">
+                <p class="_anim-show">
+                    М1 - это система на кристалле (SoC). Всё, что в других десктопных системах, разбросано по
+                    материнской плате в виде отдельных чипов в М1 располагается на одном маленьком кусочке
+                    кремния.
+                    Так на одном кристалле М1 удалось разместить, огромное количество различных компонентов:
+                </p>
+                <div class="list">
+                    <div class="list__container _container">
+                        <ul class="list__items">
+                            <ul class="list__item _anim-items">
+                                <li>Центральный и графический процессоры</li>
+                                <li>Систему ввода/вывода</li>
+                                <li>Контроллер Thunderbolt</li>
+                                <li>Систему безопасности, которая раньше была в чипе T2</li>
+                                <li>Сигнальный процессор для обработки фото и видео</li>
+                                <li>
+                                <li>Нейропроцессор и другие элементы</li>
+                                </li>
+                            </ul>
+                            <br>
+                            <div class="M2">
+                                <img src="M1.1.jpg" alt="">
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+                <p class="_anim-show">
+                    Такой подход, позволил сэкономить много места и энергии, потому как один чип,
+                    при прочих равных, всегда будет затрачивать меньше энергии, чем несколько.
+
+                    Дальше. Как и A14 Bionic, М1 создан по передовому 5 нм техпроцессу и вмещает 16 миллиардов
+                    транзисторов! Это делает систему Apple еще более компактной и энергоэффективной. Напомню,
+                    что
+                    Intel по-прежнему топчется на 10 и 14 нм, а AMD пока что остановились на 7 нм.
+                </p>
+            </div>
+            <br>
+            <div class="text__item _anim-items">
+                <div class="text__item _anim-items">
+                    <h2 class="text__title _anim-show">Интегрируемость разных компонентов</h2>
+                    <p class="_anim-show">
+                        В плане интеграции разных компонентов между собой Apple пошли еще дальше, чем в своих
+                        мобильных
+                        процессорах.
+
+                        В результате чего, все компоненты однокристальной системы имеют быстрый доступ к одним и
+                        тем
+                        же данным и нет необходимости лишний раз копировать и перемещать данные на разные
+                        участки
+                        памяти.
+                        Это сильно уменьшает задержки и ускоряет систему в целом. Например, оперативную память
+                        они
+                        расположили
+                        под одной крышкой с основным кристаллом. Такой подход улучшает работоспособность всей
+                        системы, но затрудняет аппаратное обновление. У пользователя нет возможности самому
+                        увеличить размер
+                        оперативной памяти, так как она расположена на чипе.
+                    </p>
+                    <br>
+                    <div class="M3">
+                        <img src="Pics/m1.2.jpg">
+                    </div>
+                    </p>
+                </div>
+            </div>
+            <br>
+            <div class="text__item _anim-items">
+                <div class="text__item _anim-items">
+                    <h2 class="text__title _anim-show">Масштабируемость</h2>
+                    <p class="_anim-show">
+                        M1 получился универсальным процессором. Он может быть не только супер энергоэффективным,
+                        как
+                        и другие процессоры на архитектуре ARM. Но и очень быстрым!
+
+                        Вопрос в том как он это делает? Тут есть несколько моментов:
+
+                        Во-первых, помогает классическая для мобильных устройств архитектура big.LITTLE.
+
+                        Центральный процессор в M1 - восьмиядерный. Из них четыре ядра высокопроизводительные.
+                        Они
+                        подключаются только в моменты высокой нагрузки или когда нужно быстро решить
+                        какую-нибудь
+                        короткую задачу. Эти ядра делают систему очень отзывчивой.
+
+                        А всё остальное время, когда нагрузка минимальная и система простаивает, работают четыре
+                        энергоэффективных ядра. Это делает систему очень экономичной.
+
+                        Когда ноутбуки жили по 20 часов? Теперь Apple обещает это со сцены!
+
+                        Поэтому, в то время когда Intel, чтобы сделать энергоэффективный холодный процессор,
+                        нужно
+                        делать урезанную версию чипа с меньшим количеством ядер, Apple может просто понизить
+                        тактовую частоту для высокопроизводительных ядер. И готово. Получается тонкий, легкий и
+                        холодный ультрабук с пассивным охлаждением.
+
+                        А чтобы наоборот добиться высокой производительности они могут задрать частоты на
+                        максимум.
+                    </p>
+                </div>
+                <br>
+            </div>
+        </div>
+        <div class="moments">
+            <div class="moments__container _container">
+                <a th:href="@{/orders?country=australia}" class="buttonlog">Купить билеты</a>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<script th:src="@{/jscripts/scriptmk.js}" type="text/javascript"></script>
 
 </body>
 </html>
