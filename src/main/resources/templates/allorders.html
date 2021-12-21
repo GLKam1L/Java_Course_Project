@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml" lang="en"
+      xmlns:sec="http://www.springframework.org/schema/security">
+<head>
+  <meta charset="UTF-8">
+  <title>Билеты</title>
+
+  <link media="all" rel="stylesheet" th:href="@{/css/style.css}">
+  <link media="all" rel="stylesheet" th:href="@{/css/stylemk.css}">
+  <link media="all" rel="stylesheet" th:href="@{/css/orders.css}">
+  <link media="all" rel="stylesheet" th:href="@{/css/ordersheader.css}">
+</head>
+<body>
+
+<header class="headerm">
+  <div class="containerm">
+    <div class="headerm_body">
+      <a th:href="@{/}" class="headerm_logo">
+        <img th:src="@{/images/logo12.png}" class="headerm_logo">
+      </a>
+      <div class="headerm_burger">
+        <span></span>
+      </div>
+      <nav class="headerm_menu">
+        <ul class="headerm_list">
+          <li>
+            <a sec:authorize="isAnonymous()" th:href="@{/login}" class="headerm_link">Войти</a>
+          </li>
+          <li>
+            <a sec:authorize="isAnonymous()" th:href="@{/registration}" class="headerm_link">Регистрация</a>
+          </li>
+          <li>
+            <p class="headerm_link" sec:authorize="hasAuthority('USER')">Добрый день, <span class="headerm_link" th:text="${name}"></span>
+          </li>
+          <li>
+            <a sec:authorize="not isAnonymous()" th:href="@{/user}" class="headerm_link">Личный кабинет</a>
+          </li>
+          <li>
+            <form th:if="${user != 'anonymous'}" th:action="@{/logout}" method="post">
+              <input class="buttonlogout" type="submit" value="Выйти">
+            </form>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<sec_head1 class="sec_head1">
+  <sec_nav class="sec_head_menu sec_menu">
+    <a class="sec_menu_link"></a>
+    <a th:href="@{/orders?country=australia}" class="sec_menu_link">Австралия</a>
+    <a class="sec_menu_link"></a>
+    <a th:href="@{/orders?country=usa}" class="sec_menu_link">США</a>
+    <a class="sec_menu_link"></a>
+    <a th:href="@{/orders?country=maldives}" class="sec_menu_link">Мальдивы</a>
+    <a class="sec_menu_link"></a>
+    <a th:href="@{/orders?country=india}" class="sec_menu_link">Индия</a>
+    <a class="sec_menu_link"></a>
+    <a th:href="@{/orders?country=emirates}" class="sec_menu_link">ОАЭ</a>
+    <a class="sec_menu_link"></a>
+  </sec_nav>
+</sec_head1>
+
+
+<div class="wrapper">
+  <header class="header">
+    <div class="container">
+      <div class="header_body">
+        <a th:href="@{/}" class="header_logo">
+
+        </a>
+        <div class="header_burger">
+          <span></span>
+        </div>
+        <nav class="header_menu">
+          <ul class="header_list">
+            <li>
+              <a th:href="@{/}" class="header_link">HOME</a>
+            </li>
+            <li>
+              <a th:href="@{/maldives}" class="header_link">Страны</a>
+            </li>
+            <li>
+              <form th:action="@{/logout}" method="post">
+                <input class="buttonlogout2" type="submit" value="logout">
+              </form>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <img th:src="@{/images/background.jpg}" alt="">
+
+
+
+  <div class="profile">
+    <br>
+    <h2 class="historyh1">Доступные билеты</h2>
+    <div class="history">
+      <table>
+        <tbody>
+        <tr th:if="${orders.empty}">
+          <td colspan="2"> На данный момент билентов в выбранную страну нет</td>
+        </tr>
+        <tr class="firstTR" th:if="${!orders.empty}">
+          <td><p>Название путешествия</p></td>
+          <td><p>Дата</p></td>
+          <td><p>Страна</p></td>
+          <td><p>Город</p></td>
+          <td>Бронирование</td>
+        </tr>
+        <tr th:each="order : ${orders}">
+          <td class="line"><p th:text="${order.getOrderName()}"></p></td>
+          <td class="line"><p th:text="${order.getDate()}"></p></td>
+          <td class="line"><p th:text="${order.getCountry()}"></p>
+          <td class="line"><p th:text="${order.getCity()}"></p>
+          <td class="line"><a th:href = "@{'/reserve?id=' + ${order.getId()}}">Зарезервировать</a></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="message"><a th:href="@{/search}">Поиск по всем билетам</a></p>
+
+  </div>
+</div>
+<script th:src="@{https://code.jquery.com./jquery-3.4.1.slim.min.js}"></script>
+<script th:src="@{/jscripts/header1.js}"></script>
+</body>
+</html>

@@ -59,6 +59,8 @@
         <a class="sec_menu_link"></a>
         <a th:href="@{/orders?country=emirates}" class="sec_menu_link">ОАЭ</a>
         <a class="sec_menu_link"></a>
+        <a th:href="@{/search}" class="sec_menu_link tickbut">Все билеты</a>
+        <a class="sec_menu_link"></a>
     </sec_nav>
 </sec_head1>
 
@@ -79,7 +81,7 @@
                             <a th:href="@{/}" class="header_link">HOME</a>
                         </li>
                         <li>
-                            <a th:href="@{/reserve}" class="header_link">Страны</a>
+                            <a th:href="@{/maldives}" class="header_link">Страны</a>
                         </li>
                         <li>
                             <form th:action="@{/logout}" method="post">
@@ -93,6 +95,8 @@
     </header>
 
     <img th:src="@{/images/background.jpg}" alt="">
+
+
 
     <div class="profile">
         <br>

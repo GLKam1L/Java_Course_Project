@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml" lang="en"
+      xmlns:sec="http://www.springframework.org/schema/security">
+<head>
+    <meta charset="UTF-8">
+    <title>Поиск</title>
+
+    <link media="all" rel="stylesheet" th:href="@{/css/style.css}">
+    <link media="all" rel="stylesheet" th:href="@{/css/stylemk.css}">
+    <link media="all" rel="stylesheet" th:href="@{/css/orders.css}">
+    <link media="all" rel="stylesheet" th:href="@{/css/ordersheader.css}">
+    <link media="all" rel="stylesheet" th:href="@{/css/search.css}">
+
+</head>
+<body>
+
+<header class="headerm">
+    <div class="containerm">
+        <div class="headerm_body">
+            <a th:href="@{/}" class="headerm_logo">
+                <img th:src="@{/images/logo12.png}" class="headerm_logo">
+            </a>
+            <div class="headerm_burger">
+                <span></span>
+            </div>
+            <nav class="headerm_menu">
+                <ul class="headerm_list">
+                    <li>
+                        <a sec:authorize="isAnonymous()" th:href="@{/login}" class="headerm_link">Войти</a>
+                    </li>
+                    <li>
+                        <a sec:authorize="isAnonymous()" th:href="@{/registration}" class="headerm_link">Регистрация</a>
+                    </li>
+                    <li>
+                        <a sec:authorize="not isAnonymous()" th:href="@{/user}" class="headerm_link">Личный кабинет</a>
+                    </li>
+                    <li>
+                        <form th:if="${user != 'anonymous'}" th:action="@{/logout}" method="post">
+                            <input class="buttonlogout" type="submit" value="Выйти">
+                        </form>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+
+<img th:src="@{/images/background.jpg}" alt="">
+
+
+<div class="profile">
+
+    <form class="bform" th:action="@{/search}">
+        <input type="text" name="keyword" id="keyword" placeholder="Введите запрос" size="50" th:value="${keyword}" required/>
+        &nbsp;&nbsp;
+        <button style="background-image: linear-gradient(to right, #3D7EAA 0%, #FFE47A 51%, #3D7EAA 100%)" type="submit">Найти</button>
+        &nbsp;&nbsp;
+        <button style="background-image: linear-gradient(to right, #FFE47A 0%, #3D7EAA 51%, #FFE47A 100%)" type="button" id="btnClear" onclick="clearSearch()">Очистить</button>
+    </form>
+
+    <div class="history">
+        <table>
+            <tbody>
+            <tr class="firstTR">
+                <td><p>Название путешествия</p></td>
+                <td><p>Дата</p></td>
+                <td><p>Страна</p></td>
+                <td><p>Город</p></td>
+                <td>Бронирование</td>
+            </tr>
+            <tr th:each="order : ${orders}">
+                <td class="line"><p th:text="${order.getOrderName()}"></p></td>
+                <td class="line"><p th:text="${order.getDate()}"></p></td>
+                <td class="line"><p th:text="${order.getCountry()}"></p>
+                <td class="line"><p th:text="${order.getCity()}"></p>
+                <td class="line"><a th:href="@{'/reserve?id=' + ${order.getId()}}">Зарезервировать</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+
+<script type="text/javascript">
+    function clearSearch() {
+        window.location = "[[@{/search}]]";
+    }
+</script>
+</html>

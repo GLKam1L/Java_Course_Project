@@ -65,10 +65,9 @@ img{
 
 .history{
     font-family: InterBold;
-    padding: 5%;
     font-size: 90%;
     margin-left: 10%;
-    margin-bottom: 5%;
+    margin-bottom: 3%;
     margin-top: 0;
     text-transform: uppercase;
     background-color: #3e3e3e;
@@ -153,4 +152,19 @@ img{
 
 .line{
     padding:20px 0;
+}
+
+
+.message{
+    font-family: InterBold;
+    margin-bottom: 5%;
+    color: white;
+    font-size:40px;
+    text-align: center;
+}
+.message a{
+    font-family: InterBold;
+    text-decoration: none;
+    color: #FFE47A;
+    font-size: 40px;
 }

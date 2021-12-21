@@ -1,6 +1,7 @@
 package ru.mirea.tourismapp.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -9,9 +10,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import ru.mirea.tourismapp.domain.Order;
+import ru.mirea.tourismapp.domain.ProductService;
 import ru.mirea.tourismapp.domain.User;
 import ru.mirea.tourismapp.repo.OrderRepo;
+import ru.mirea.tourismapp.repo.ProductRepo;
 import ru.mirea.tourismapp.repo.UserRepo;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/")
@@ -22,6 +27,12 @@ public class HomeController {
 
     @Autowired
     UserRepo userRepo;
+
+    @Autowired
+    ProductRepo productRepo;
+
+    @Autowired
+    ProductService service;
 
     @GetMapping
     public String index(@AuthenticationPrincipal User user, Model model) {
@@ -124,6 +135,18 @@ public class HomeController {
             model.addAttribute("name", user.getName());
         }
         return "india";
+    }
+
+
+    @RequestMapping("/search")
+    public String viewHomePage(User user, Model model, @Param("keyword") String keyword) {
+        List<Order> orders = service.listAll(keyword);
+        model.addAttribute("orders", orders);
+        model.addAttribute("keyword", keyword);
+        if (user != null) {
+            model.addAttribute("name", user.getName());
+        }
+        return "search";
     }
 
 }
